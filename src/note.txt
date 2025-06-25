@@ -1,0 +1,47 @@
+{ Infos projet
+    Translater un point => Déplacer un point.
+    Norme d'un point => Distance d'un point par rapport à l'origine.
+
+}
+
+{ Création du projet étape par étape
+    On crée le projet dans l'éditeur Intellij
+
+    Dans le dossier src
+        Créer le dossier domaine
+        Dans domaine : Créer la classe Point.java
+
+    Dans le fichier Point.java
+        Ajout des attributs
+            private double x; // abcisse
+            private double y; // ordonnée
+
+        Ajout des fonctions : constructeur, getter et setter.
+            public Point (double xi, double yi){x=xi; y=yi;}
+            public double consulterX(double x){return x;}
+            public double consulterY(double y){return y;}
+            public void modifierX(double nx){x=nx;}
+            public void modifierY(double ny){y=ny;}
+
+    Dans le dossier src
+        Créer le dossier metier
+        Dans metier : créer la classe Traitement.java
+
+    Dans le fichier Traitement.java
+        // contraintes
+            import domaine.*;
+        créer les fonctions "norme" et "translater"
+        public double norme (Point p){return 0}
+        public double translater(Point p, double nx, double ny)
+        {return 0}
+
+
+
+
+
+
+
+
+
+
+}
