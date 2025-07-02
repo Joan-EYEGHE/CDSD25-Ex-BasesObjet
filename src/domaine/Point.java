@@ -1,7 +1,5 @@
 package domaine;
 
-import java.lang.reflect.Constructor;
-
 public class Point {
 
     // Attributs
@@ -15,8 +13,8 @@ public class Point {
 
 
         // Getters
-    public double consulterX(double x){return x;}
-    public double consulterY(double y){return y;}
+    public double consulterX(){return x;}
+    public double consulterY(){return y;}
 
         // Setters
     public void modifierX(double nx){x=nx;}

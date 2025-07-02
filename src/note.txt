@@ -4,14 +4,14 @@
 
 }
 
-{ Création du projet étape par étape
+{ Guide de Création du projet étape par étape
     On crée le projet dans l'éditeur Intellij
 
     Dans le dossier src
         Créer le dossier domaine
         Dans domaine : Créer la classe Point.java
 
-    Dans le fichier Point.java
+    Dans le fichier (la classe) Point.java
         Ajout des attributs
             private double x; // abcisse
             private double y; // ordonnée
@@ -27,21 +27,64 @@
         Créer le dossier metier
         Dans metier : créer la classe Traitement.java
 
-    Dans le fichier Traitement.java
+    Dans la classe Traitement.java
         // contraintes
             import domaine.*;
         créer les fonctions "norme" et "translater"
-        public double norme (Point p){return 0}
-        public double translater(Point p, double nx, double ny)
-        {return 0}
+        // Norme
+            public double norme (Point p){
+                double x = p.consulterX();
+                double y = p.consulterY();
+                return Math.sqrt(x*x+y*y);
+            }
+        // Translater
+            public void translater(Point p, double nx, double ny)
+            {
+                double x = p.consulterX();
+                double y = p.consulterY();
+                p.modifierX(x+nx);
+                p.modifierY(y+ny);
+            }
 
+        Dans le dossier src
+        Créer le dossier presentation
+            Dans presentation : créer la classe Vue.java
 
+        Dans la classe Vue.java
+            Ajout de la méthode main
+                public static void main(String args){}
 
+            Créations des objets dans main
+            // contraintes
+                import domaine.*;
+                import metier.*;
+         public static void main(String [] args){
 
+                 // Création des points
+                 Point p1 =new Point(2,4);
+                 Point p2 =new Point(8,-3);
+                 Traitement tr = new Traitement();
 
+                 // Affichage des valeurs des points
+                 System.out.println("L'abcisse de P1 : " + p1.consulterX());
+                 System.out.println("L'ordonnée de P1 : " + p1.consulterY());
+                 System.out.println("L'abcisse de P2 : " + p2.consulterX());
+                 System.out.println("L'ordonnée de P2 : " + p2.consulterY());
 
+                 // La norme des points
+                 System.out.println("La norme de P1 : " + tr.norme(p1));
+                 System.out.println("La norme de P2 : " + tr.norme(p2));
 
+                 // Translation des points
+                 tr.translater(p1, 2, -1);
+                 tr.translater(p2, 3, 0);
 
+                 // Affichage des valeurs des points après translation
+                 System.out.println("Nouvelle abcisse de P1 : " + p1.consulterX());
+                 System.out.println("Nouvelle ordonnée de P1 : " + p1.consulterY());
+                 System.out.println("Nouvelle abcisse de P2 : " + p2.consulterX());
+                 System.out.println("Nouvelle ordonnée de P2 : " + p2.consulterY());
 
-
-}
+                 System.out.println("Nouvelle norme de P1 : " + tr.norme(p1));
+                 System.out.println("Nouvelle norme de P2 : " + tr.norme(p2));
+             }
